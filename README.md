@@ -2,6 +2,16 @@
 
 Transform client spreadsheets into automated systems with AI-generated visual demonstrations delivered during discovery calls.
 
+## 🎉 New: Node.js Production-Ready Version (v2.0)
+
+This project has been upgraded with a complete Node.js backend and comprehensive deployment guides for integration with your company website.
+
+**Start here:**
+- **Quick Setup (5 min)**: [QUICKSTART.md](QUICKSTART.md)
+- **Full Overview**: [README_NEW.md](README_NEW.md)
+- **Production Deploy**: [PRODUCTION_DEPLOYMENT.md](PRODUCTION_DEPLOYMENT.md)
+- **Website Integration**: [INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md)
+
 ## What This Is
 
 A complete system for:
@@ -193,24 +203,37 @@ All documentation is self-contained in this repository:
 
 ## Technology Stack
 
-**Landing Page:** HTML, CSS, JavaScript (no frameworks)
+**Backend:** Node.js 18+, Express.js (upgraded from Python Flask)
 
-**API:** Python Flask, SQLite
+**Database:** SQLite 3 (easily upgradable to PostgreSQL)
+
+**Frontend:** HTML, CSS, JavaScript (no frameworks)
 
 **Workflow Docs:** Markdown with Mermaid diagrams
 
-**Mockups:** HTML, CSS, JavaScript (no frameworks)
+**Process Management:** PM2
 
-**Deployment:** Netlify, Vercel, or any static host
+**Deployment:** Your company website, VPS, or cloud services
 
 ## License
 
 Internal use. Customize for your business.
 
-## Version
+## Version History
+
+**v2.0** - November 2025 (Current - Production Ready)
+- Complete Node.js/Express backend
+- Replaces Python Flask API
+- Production deployment guides
+- Website integration documentation
+- Migration tools and scripts
+- Automated backup and export scripts
+- Comprehensive configuration management
+- Security hardening documentation
 
 **v1.0** - November 2025
 - Initial system release
+- Python Flask API
 - Complete workflow templates
 - Interactive mockup framework
 - Updated landing page
@@ -218,5 +241,9 @@ Internal use. Customize for your business.
 
 ---
 
-**Next Step:** Read [ONE_WEEK_MOCKUP_SYSTEM.md](ONE_WEEK_MOCKUP_SYSTEM.md) for complete overview.
+**Next Steps:**
+- New users: Read [QUICKSTART.md](QUICKSTART.md) for 5-minute setup
+- Production deployment: See [PRODUCTION_DEPLOYMENT.md](PRODUCTION_DEPLOYMENT.md)
+- Website integration: See [INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md)
+- Complete overview: Read [README_NEW.md](README_NEW.md)
 
