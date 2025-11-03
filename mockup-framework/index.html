@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Workflow Mockup - [Client Name]</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">[Client Name] - Proposed System</h1>
+            <nav class="nav">
+                <a href="#overview" class="nav-link active">Overview</a>
+                <a href="#workflow" class="nav-link">Workflow</a>
+                <a href="#dashboard" class="nav-link">Dashboard</a>
+                <a href="#comparison" class="nav-link">Before/After</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Overview Section -->
+    <section id="overview" class="section section-overview">
+        <div class="container">
+            <div class="hero">
+                <h2 class="hero-title">Your Spreadsheet, Transformed</h2>
+                <p class="hero-subtitle">See how your current manual process becomes an automated system</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-value">75%</div>
+                        <div class="stat-label">Time Saved</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">10hrs</div>
+                        <div class="stat-label">Per Week</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">$50K</div>
+                        <div class="stat-label">Annual Savings</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Real-Time Data</h3>
+                    <p class="card-text">No more waiting for weekly reports. See your metrics update live as data comes in.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔄</div>
+                    <h3 class="card-title">Automated Workflows</h3>
+                    <p class="card-text">Manual tasks run automatically. Notifications sent when action is needed.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3 class="card-title">Access Anywhere</h3>
+                    <p class="card-text">Web and mobile access for your team. No more emailing files around.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Workflow Section -->
+    <section id="workflow" class="section section-workflow">
+        <div class="container">
+            <h2 class="section-title">Interactive Workflow Demo</h2>
+            <p class="section-subtitle">Click through the process to see how data flows through your new system</p>
+
+            <div class="workflow-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Data Entry</h3>
+                        <p class="step-description">User enters data via web form or mobile app</p>
+                    </div>
+                </div>
+                <div class="step-arrow">→</div>
+                
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Validation</h3>
+                        <p class="step-description">Automatic validation and error checking</p>
+                    </div>
+                </div>
+                <div class="step-arrow">→</div>
+                
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Processing</h3>
+                        <p class="step-description">Data stored in database, triggers run</p>
+                    </div>
+                </div>
+                <div class="step-arrow">→</div>
+                
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Dashboard Update</h3>
+                        <p class="step-description">Real-time metrics refresh automatically</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Demo Area -->
+            <div class="demo-area">
+                <div class="demo-panel" id="demo-step-1">
+                    <h3>Step 1: Data Entry Form</h3>
+                    <div class="mock-form">
+                        <div class="form-group">
+                            <label>Customer Name</label>
+                            <input type="text" class="form-input" placeholder="Acme Corporation" id="input-customer">
+                        </div>
+                        <div class="form-group">
+                            <label>Order Amount</label>
+                            <input type="number" class="form-input" placeholder="1250.00" id="input-amount">
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select class="form-input" id="input-status">
+                                <option>Pending</option>
+                                <option>In Progress</option>
+                                <option>Completed</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" id="btn-submit">Submit Order</button>
+                    </div>
+                </div>
+
+                <div class="demo-panel hidden" id="demo-step-2">
+                    <h3>Step 2: Automatic Validation</h3>
+                    <div class="validation-results">
+                        <div class="validation-item success">
+                            <span class="validation-icon">✓</span>
+                            <span>Customer name is valid</span>
+                        </div>
+                        <div class="validation-item success">
+                            <span class="validation-icon">✓</span>
+                            <span>Amount is within range</span>
+                        </div>
+                        <div class="validation-item success">
+                            <span class="validation-icon">✓</span>
+                            <span>Status selection is valid</span>
+                        </div>
+                        <div class="validation-item success">
+                            <span class="validation-icon">✓</span>
+                            <span>No duplicate entries detected</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="btn-next-2">Continue →</button>
+                </div>
+
+                <div class="demo-panel hidden" id="demo-step-3">
+                    <h3>Step 3: Processing & Storage</h3>
+                    <div class="processing-log">
+                        <div class="log-item">
+                            <span class="log-time">10:42:15</span>
+                            <span class="log-message">Received order data</span>
+                        </div>
+                        <div class="log-item">
+                            <span class="log-time">10:42:16</span>
+                            <span class="log-message">Assigned order ID: #2847</span>
+                        </div>
+                        <div class="log-item">
+                            <span class="log-time">10:42:16</span>
+                            <span class="log-message">Saved to database</span>
+                        </div>
+                        <div class="log-item">
+                            <span class="log-time">10:42:17</span>
+                            <span class="log-message">Triggered notification workflow</span>
+                        </div>
+                        <div class="log-item">
+                            <span class="log-time">10:42:17</span>
+                            <span class="log-message">Updated analytics</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="btn-next-3">Continue →</button>
+                </div>
+
+                <div class="demo-panel hidden" id="demo-step-4">
+                    <h3>Step 4: Dashboard Updated</h3>
+                    <div class="dashboard-preview">
+                        <div class="metric-card">
+                            <div class="metric-label">Total Orders Today</div>
+                            <div class="metric-value" id="metric-orders">23</div>
+                            <div class="metric-change positive">+1 new</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">Revenue Today</div>
+                            <div class="metric-value" id="metric-revenue">$28,450</div>
+                            <div class="metric-change positive">+$1,250</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">Pending Items</div>
+                            <div class="metric-value" id="metric-pending">8</div>
+                            <div class="metric-change neutral">No change</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-success" id="btn-reset">Try Again</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="section section-dashboard">
+        <div class="container">
+            <h2 class="section-title">Executive Dashboard</h2>
+            <p class="section-subtitle">Real-time insights into your operations</p>
+
+            <!-- Dashboard Tabs -->
+            <div class="dashboard-tabs">
+                <button class="tab-btn active" data-tab="executive">Executive View</button>
+                <button class="tab-btn" data-tab="manager">Manager View</button>
+                <button class="tab-btn" data-tab="user">User View</button>
+            </div>
+
+            <!-- Executive Dashboard -->
+            <div class="dashboard-content active" id="tab-executive">
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-header">
+                            <span class="metric-title">Total Revenue</span>
+                            <span class="metric-period">This Month</span>
+                        </div>
+                        <div class="metric-main">$487,329</div>
+                        <div class="metric-footer">
+                            <span class="trend positive">↑ 12.5%</span>
+                            <span>vs last month</span>
+                        </div>
+                    </div>
+
+                    <div class="metric-box">
+                        <div class="metric-header">
+                            <span class="metric-title">Active Customers</span>
+                            <span class="metric-period">Current</span>
+                        </div>
+                        <div class="metric-main">234</div>
+                        <div class="metric-footer">
+                            <span class="trend positive">↑ 8</span>
+                            <span>new this week</span>
+                        </div>
+                    </div>
+
+                    <div class="metric-box">
+                        <div class="metric-header">
+                            <span class="metric-title">Pending Items</span>
+                            <span class="metric-period">Action Needed</span>
+                        </div>
+                        <div class="metric-main">23</div>
+                        <div class="metric-footer">
+                            <span class="trend negative">↑ 5</span>
+                            <span>from yesterday</span>
+                        </div>
+                    </div>
+
+                    <div class="metric-box">
+                        <div class="metric-header">
+                            <span class="metric-title">Completion Rate</span>
+                            <span class="metric-period">Last 30 Days</span>
+                        </div>
+                        <div class="metric-main">94.2%</div>
+                        <div class="metric-footer">
+                            <span class="trend positive">↑ 2.1%</span>
+                            <span>improved</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Area -->
+                <div class="charts-grid">
+                    <div class="chart-box">
+                        <h3 class="chart-title">Revenue Trend (30 Days)</h3>
+                        <div class="chart-placeholder">
+                            <svg viewBox="0 0 400 200" class="line-chart">
+                                <polyline points="10,150 50,120 90,140 130,100 170,110 210,80 250,90 290,60 330,70 370,40" 
+                                          fill="none" stroke="#2563eb" stroke-width="3"/>
+                                <line x1="10" y1="180" x2="370" y2="180" stroke="#e5e7eb" stroke-width="1"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="chart-box">
+                        <h3 class="chart-title">Status Breakdown</h3>
+                        <div class="chart-placeholder">
+                            <div class="pie-chart">
+                                <div class="pie-item" style="--percentage: 60; --color: #10b981;">
+                                    <span>Completed 60%</span>
+                                </div>
+                                <div class="pie-item" style="--percentage: 25; --color: #f59e0b;">
+                                    <span>In Progress 25%</span>
+                                </div>
+                                <div class="pie-item" style="--percentage: 15; --color: #6366f1;">
+                                    <span>Pending 15%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manager Dashboard -->
+            <div class="dashboard-content" id="tab-manager">
+                <div class="data-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Team Member</th>
+                                <th>Items Processed</th>
+                                <th>Avg Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Smith</td>
+                                <td>47</td>
+                                <td>12 min</td>
+                                <td><span class="badge badge-success">On Track</span></td>
+                            </tr>
+                            <tr>
+                                <td>Sarah Johnson</td>
+                                <td>52</td>
+                                <td>10 min</td>
+                                <td><span class="badge badge-success">Excellent</span></td>
+                            </tr>
+                            <tr>
+                                <td>Mike Chen</td>
+                                <td>38</td>
+                                <td>15 min</td>
+                                <td><span class="badge badge-warning">Needs Support</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- User Dashboard -->
+            <div class="dashboard-content" id="tab-user">
+                <div class="user-view">
+                    <div class="task-list">
+                        <h3>My Tasks (8)</h3>
+                        <div class="task-item">
+                            <input type="checkbox" id="task1">
+                            <label for="task1">Review order #2845</label>
+                            <span class="task-priority high">High</span>
+                        </div>
+                        <div class="task-item">
+                            <input type="checkbox" id="task2">
+                            <label for="task2">Update customer info</label>
+                            <span class="task-priority medium">Medium</span>
+                        </div>
+                        <div class="task-item">
+                            <input type="checkbox" id="task3">
+                            <label for="task3">Process refund request</label>
+                            <span class="task-priority high">High</span>
+                        </div>
+                    </div>
+                    <div class="user-stats">
+                        <h3>My Performance</h3>
+                        <div class="stat-row">
+                            <span>Today:</span>
+                            <strong>12 items completed</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>This Week:</span>
+                            <strong>47 items completed</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>Avg Time:</span>
+                            <strong>11 minutes per item</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Comparison -->
+    <section id="comparison" class="section section-comparison">
+        <div class="container">
+            <h2 class="section-title">Before vs After</h2>
+            <p class="section-subtitle">See the transformation at a glance</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-column before">
+                    <h3 class="comparison-title">Current Spreadsheet Process</h3>
+                    <ul class="comparison-list">
+                        <li class="comparison-item negative">
+                            <span class="icon">✗</span>
+                            Manual data entry in multiple files
+                        </li>
+                        <li class="comparison-item negative">
+                            <span class="icon">✗</span>
+                            Email files back and forth
+                        </li>
+                        <li class="comparison-item negative">
+                            <span class="icon">✗</span>
+                            Version control nightmare
+                        </li>
+                        <li class="comparison-item negative">
+                            <span class="icon">✗</span>
+                            Weekly reporting only
+                        </li>
+                        <li class="comparison-item negative">
+                            <span class="icon">✗</span>
+                            Limited to desktop Excel
+                        </li>
+                        <li class="comparison-item negative">
+                            <span class="icon">✗</span>
+                            Manual error checking
+                        </li>
+                    </ul>
+                    <div class="time-estimate">
+                        <strong>10+ hours per week</strong>
+                    </div>
+                </div>
+
+                <div class="comparison-divider">
+                    <div class="divider-icon">→</div>
+                </div>
+
+                <div class="comparison-column after">
+                    <h3 class="comparison-title">Automated System</h3>
+                    <ul class="comparison-list">
+                        <li class="comparison-item positive">
+                            <span class="icon">✓</span>
+                            Web forms with validation
+                        </li>
+                        <li class="comparison-item positive">
+                            <span class="icon">✓</span>
+                            Real-time database sync
+                        </li>
+                        <li class="comparison-item positive">
+                            <span class="icon">✓</span>
+                            Single source of truth
+                        </li>
+                        <li class="comparison-item positive">
+                            <span class="icon">✓</span>
+                            Live dashboards 24/7
+                        </li>
+                        <li class="comparison-item positive">
+                            <span class="icon">✓</span>
+                            Mobile & web access
+                        </li>
+                        <li class="comparison-item positive">
+                            <span class="icon">✓</span>
+                            Automatic validation & alerts
+                        </li>
+                    </ul>
+                    <div class="time-estimate">
+                        <strong>2-3 hours per week</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROI Calculator -->
+            <div class="roi-section">
+                <h3 class="roi-title">Your ROI</h3>
+                <div class="roi-grid">
+                    <div class="roi-item">
+                        <div class="roi-label">Time Saved Weekly</div>
+                        <div class="roi-value">7-8 hours</div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-label">Annual Cost Savings</div>
+                        <div class="roi-value">$18,200</div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-label">Payback Period</div>
+                        <div class="roi-value">6 months</div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-label">3-Year ROI</div>
+                        <div class="roi-value">340%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2 class="cta-title">Ready to Build This?</h2>
+                <p class="cta-text">This mockup shows what we can deliver in 8-10 weeks</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-large btn-primary">Schedule Implementation Call</button>
+                    <button class="btn btn-large btn-secondary">Download Full Proposal</button>
+                </div>
+                <p class="cta-note">Questions? Email us at hello@example.com</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Your Company Name. This is a demonstration mockup prepared for [Client Name].</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

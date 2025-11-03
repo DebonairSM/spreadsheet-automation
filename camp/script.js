@@ -64,21 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(element);
     });
     
-    // File upload visual feedback
-    const fileInputs = document.querySelectorAll('input[type="file"]');
-    
-    fileInputs.forEach(input => {
-        input.addEventListener('change', (e) => {
-            const fileName = e.target.files[0]?.name || 'Choose file...';
-            const label = input.nextElementSibling;
-            const fileText = label.querySelector('.file-text');
-            
-            if (fileText) {
-                fileText.textContent = fileName;
-                fileText.style.color = 'var(--color-text)';
-            }
-        });
-    });
+    // File upload visual feedback removed - no longer needed
     
     // Form validation and submission handling
     const scanForm = document.getElementById('scanForm');
@@ -98,27 +84,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const form = e.target;
         const formData = new FormData(form);
         
+        // Determine form type (scan or challenge)
+        const formType = form.id === 'scanForm' ? 'scan' : 'challenge';
+        
         // Basic validation
         const requiredFields = form.querySelectorAll('[required]');
         let isValid = true;
         
         requiredFields.forEach(field => {
-            if (!field.value.trim() && field.type !== 'file') {
+            if (!field.value.trim()) {
                 isValid = false;
                 field.style.borderColor = 'var(--color-danger)';
                 
                 // Reset border color on input
                 field.addEventListener('input', () => {
                     field.style.borderColor = '';
-                }, { once: true });
-            } else if (field.type === 'file' && field.files.length === 0) {
-                isValid = false;
-                const label = field.nextElementSibling;
-                label.style.borderColor = 'var(--color-danger)';
-                
-                // Reset border color on change
-                field.addEventListener('change', () => {
-                    label.style.borderColor = '';
                 }, { once: true });
             }
         });
@@ -136,48 +116,44 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         
-        // File size validation (max 10MB)
-        const fileInput = form.querySelector('input[type="file"]');
-        if (fileInput && fileInput.files.length > 0) {
-            const file = fileInput.files[0];
-            const maxSize = 10 * 1024 * 1024; // 10MB
-            
-            if (file.size > maxSize) {
-                showNotification('File size must be less than 10MB', 'error');
-                return;
-            }
-        }
-        
         // Show loading state
         const submitButton = form.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
-        submitButton.textContent = 'Submitting...';
+        submitButton.textContent = 'Saving...';
         submitButton.disabled = true;
         
-        // Simulate form submission (replace with actual API call)
-        setTimeout(() => {
-            console.log('Form submitted:', Object.fromEntries(formData));
-            
-            // Show success message
-            showNotification('Thank you! We\'ll analyze your spreadsheet and get back to you within 2 business days.', 'success');
-            
-            // Reset form
-            form.reset();
-            
-            // Reset file input labels
-            const fileLabels = form.querySelectorAll('.file-text');
-            fileLabels.forEach(label => {
-                label.textContent = 'Choose file...';
-                label.style.color = '';
-            });
-            
-            // Reset button
+        // Prepare data for API
+        const leadData = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            company: formData.get('company') || '',
+            description: formData.get('description') || '',
+            form_type: formType
+        };
+        
+        // Send to backend API
+        fetch('/api/leads', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(leadData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Redirect to Calendly
+            const calendlyUrl = 'https://calendly.com/vsol/meeting-with-bandeira';
+            window.location.href = calendlyUrl;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showNotification('Something went wrong. Please try again.', 'error');
             submitButton.textContent = originalText;
             submitButton.disabled = false;
-            
-            // Scroll to top of form
-            form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 1500);
+        });
     }
     
     function isValidEmail(email) {
