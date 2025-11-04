@@ -437,3 +437,42 @@ window.addEventListener('load', () => {
     }
 });
 
+// Modal functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('aiModal');
+    const openBtn = document.getElementById('openAiModal');
+    const closeBtn = document.getElementById('closeAiModal');
+    
+    if (openBtn && modal) {
+        openBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+        });
+    }
+    
+    if (closeBtn && modal) {
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scroll
+        });
+    }
+    
+    // Close modal when clicking outside the modal content
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+    
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+});
+

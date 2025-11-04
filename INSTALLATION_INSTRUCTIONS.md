@@ -574,3 +574,4 @@ curl http://localhost:3000/api/leads
 
 **Installation Complete!** Your Spreadsheet Automation Platform is ready to capture leads and deliver mockups.
 
+
